@@ -14,5 +14,9 @@ func userRouterInit(r *gin.RouterGroup) {
 		user.POST("/login", userController.AuthByPassword)
 		user.POST("/login/session", userController.AuthBySession)
 		user.POST("/info",midwares.CheckLogin, userController.GetUserInfo)
+		bind := user.Group("/bind", midwares.CheckLogin)
+		{
+			bind.POST("/zf", userController.BindZFPassword)
+		}
 	}
 }
