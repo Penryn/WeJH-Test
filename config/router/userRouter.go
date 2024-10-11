@@ -18,6 +18,7 @@ func userRouterInit(r *gin.RouterGroup) {
 		{
 			bind.POST("/zf", userController.BindZFPassword)
 			bind.POST("/oauth", userController.BindOauthPassword)
+			bind.POST("/library", userController.BindLibraryPassword)
 		}
 	}
 }
