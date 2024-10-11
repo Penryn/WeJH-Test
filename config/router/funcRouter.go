@@ -1,6 +1,7 @@
 package router
 
 import (
+	"wejh-go/app/controllers/funcControllers/lostAndFoundRecordController"
 	"wejh-go/app/controllers/funcControllers/zfController"
 	"wejh-go/app/midwares"
 
@@ -17,6 +18,10 @@ func funcRouterInit(r *gin.RouterGroup) {
 			zf.POST("/exam", zfController.GetExam)
 			zf.POST("/score", zfController.GetScore)
 			zf.POST("/room", zfController.GetRoom)
+		}
+		lost := fun.Group("/lost", midwares.CheckLogin)
+		{
+			lost.GET("/kind_list", lostAndFoundRecordController.GetKindList)
 		}
 	}
 }
