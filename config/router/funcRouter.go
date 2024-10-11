@@ -3,6 +3,7 @@ package router
 import (
 	"wejh-go/app/controllers/funcControllers/lostAndFoundRecordController"
 	"wejh-go/app/controllers/funcControllers/zfController"
+	"wejh-go/app/controllers/yxyController/electricityController"
 	"wejh-go/app/midwares"
 
 	"github.com/gin-gonic/gin"
@@ -22,6 +23,10 @@ func funcRouterInit(r *gin.RouterGroup) {
 		lost := fun.Group("/lost", midwares.CheckLogin)
 		{
 			lost.GET("/kind_list", lostAndFoundRecordController.GetKindList)
+		}
+		electricity := fun.Group("/electricity", midwares.CheckLogin)
+		{
+			electricity.GET("/balance", electricityController.GetBalance)
 		}
 	}
 }
