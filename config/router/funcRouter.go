@@ -16,6 +16,7 @@ func funcRouterInit(r *gin.RouterGroup) {
 			zf.POST("/classtable", zfController.GetClassTable)
 			zf.POST("/exam", zfController.GetExam)
 			zf.POST("/score", zfController.GetScore)
+			zf.POST("/room", zfController.GetRoom)
 		}
 	}
 }

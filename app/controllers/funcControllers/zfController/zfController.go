@@ -724,3 +724,103 @@ func GetScore(c *gin.Context) {
 
     utils.JsonSuccessResponse(c, result)
 }
+
+type roomForm struct {
+	Year     string `json:"year" binding:"required"`
+	Term     string `json:"term" binding:"required"`
+	Campus   string `json:"campus" binding:"required"`
+	Weekday  string `json:"weekday" binding:"required"`
+	Sections string `json:"sections" binding:"required"`
+	Week     string `json:"week" binding:"required"`
+}
+
+func GetRoom(c *gin.Context) {
+	var postForm roomForm
+	err := c.ShouldBindJSON(&postForm)
+	if err != nil {
+		_ = c.AbortWithError(200, apiException.ParamError)
+		return
+	}
+	_, err = sessionServices.GetUserSession(c)
+
+	if err != nil {
+		_ = c.AbortWithError(200, apiException.NotLogin)
+		return
+	}
+
+	result := []map[string]interface{}{
+        {
+            "buildName": "教科大楼",
+            "campus": "朝晖校区",
+            "roomName": "教201",
+            "roomSeats": "194",
+            "roomSeatsForExam": "75",
+            "roomSize": "207",
+            "type": "多媒体教室",
+        },
+        {
+            "buildName": "子良A区",
+            "campus": "朝晖校区",
+            "roomName": "子良A145",
+            "roomSeats": "194",
+            "roomSeatsForExam": "75",
+            "roomSize": "200",
+            "type": "多媒体教室",
+        },
+        {
+            "buildName": "教科大楼",
+            "campus": "朝晖校区",
+            "roomName": "教701",
+            "roomSeats": "90",
+            "roomSeatsForExam": "45",
+            "roomSize": "77",
+            "type": "多媒体教室",
+        },
+        {
+            "buildName": "子良A区",
+            "campus": "朝晖校区",
+            "roomName": "子良A347",
+            "roomSeats": "119",
+            "roomSeatsForExam": "60",
+            "roomSize": "100",
+            "type": "多媒体教室",
+        },
+        {
+            "buildName": "东配楼",
+            "campus": "朝晖校区",
+            "roomName": "东配楼242",
+            "roomSeats": "132",
+            "roomSeatsForExam": "66",
+            "roomSize": "200",
+            "type": "多媒体教室",
+        },
+        {
+            "buildName": "文荟楼",
+            "campus": "朝晖校区",
+            "roomName": "文103",
+            "roomSeats": "23",
+            "roomSeatsForExam": "23",
+            "roomSize": "41",
+            "type": "多媒体教室",
+        },
+        {
+            "buildName": "子良A区",
+            "campus": "朝晖校区",
+            "roomName": "子良A142",
+            "roomSeats": "47",
+            "roomSeatsForExam": "39",
+            "roomSize": "75",
+            "type": "录播教室",
+        },
+        {
+            "buildName": "东配楼",
+            "campus": "朝晖校区",
+            "roomName": "东配楼412",
+            "roomSeats": "106",
+            "roomSeatsForExam": "60",
+            "roomSize": "100",
+            "type": "多媒体教室",
+        },
+    } 
+	utils.JsonSuccessResponse(c, result)
+}
