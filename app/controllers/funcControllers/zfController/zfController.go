@@ -27,40 +27,38 @@ func GetMidTermScore(c *gin.Context) {
 		return
 	}
 
-	result := map[string]interface{}{
-		"data": []map[string]interface{}{
-			{
-				"className":   "心理健康与自我成长-0017",
-				"credits":     "1.0",
-				"lessonID":    "G207007",
-				"lessonName":  "心理健康与自我成长",
-				"score":       "100",
-				"teacherName": "张苗苗",
-			},
-			{
-				"className":   "高等数学Ⅰ-0012",
-				"credits":     "5.0",
-				"lessonID":    "G210013",
-				"lessonName":  "高等数学Ⅰ",
-				"score":       "100",
-				"teacherName": "任博",
-			},
-			{
-				"className":   "大学物理实验  A-0005",
-				"credits":     "1.5",
-				"lessonID":    "G410015",
-				"lessonName":  "大学物理实验  A",
-				"score":       "100",
-				"teacherName": "张庆彬",
-			},
-			{
-				"className":   "程序设计基础C-0005（大类）",
-				"credits":     "4.0",
-				"lessonID":    "G226002",
-				"lessonName":  "程序设计基础C",
-				"score":       "100",
-				"teacherName": "毛国红",
-			},
+	result := []map[string]interface{}{
+		{
+			"className":   "心理健康与自我成长-0017",
+			"credits":     "1.0",
+			"lessonID":    "G207007",
+			"lessonName":  "心理健康与自我成长",
+			"score":       "100",
+			"teacherName": "张苗苗",
+		},
+		{
+			"className":   "高等数学Ⅰ-0012",
+			"credits":     "5.0",
+			"lessonID":    "G210013",
+			"lessonName":  "高等数学Ⅰ",
+			"score":       "100",
+			"teacherName": "任博",
+		},
+		{
+			"className":   "大学物理实验  A-0005",
+			"credits":     "1.5",
+			"lessonID":    "G410015",
+			"lessonName":  "大学物理实验  A",
+			"score":       "100",
+			"teacherName": "张庆彬",
+		},
+		{
+			"className":   "程序设计基础C-0005（大类）",
+			"credits":     "4.0",
+			"lessonID":    "G226002",
+			"lessonName":  "程序设计基础C",
+			"score":       "100",
+			"teacherName": "毛国红",
 		},
 	}
 
