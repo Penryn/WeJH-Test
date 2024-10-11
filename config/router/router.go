@@ -13,6 +13,7 @@ func Init(r *gin.Engine) {
 	{
 		userRouterInit(api)
 		funcRouterInit(api)
+		systemRouterInit(api)
 	}
 
 }
