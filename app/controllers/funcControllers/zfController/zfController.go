@@ -407,3 +407,131 @@ func GetClassTable(c *gin.Context) {
 	}
 	utils.JsonSuccessResponse(c, result)
 }
+
+func GetExam(c *gin.Context) {
+    var postForm form
+    err := c.ShouldBindJSON(&postForm)
+    if err != nil {
+        _ = c.AbortWithError(200, apiException.ParamError)
+        return
+    }
+    _, err = sessionServices.GetUserSession(c)
+
+    if err != nil {
+        _ = c.AbortWithError(200, apiException.NotLogin)
+        return
+    }
+
+    result := []map[string]interface{}{
+        {
+            "campus":      "朝晖校区",
+            "className":   "程序设计基础C-0005（大类）",
+            "credits":     "4.0",
+            "examPlace":   "子良A344",
+            "examTime":    "2024-01-22(13:30-15:30)",
+            "id":          "G226002",
+            "lessonName":  "程序设计基础C",
+            "lessonPlace": "教901;教307;教903;教307",
+            "seatNum":     "28",
+            "teacherName": "01567/毛国红",
+        },
+        {
+            "campus":      "朝晖校区",
+            "className":   "线性代数B-0012",
+            "credits":     "2.0",
+            "examPlace":   "教204",
+            "examTime":    "2024-01-19(13:30-15:30)",
+            "id":          "G210381",
+            "lessonName":  "线性代数B",
+            "lessonPlace": "教202",
+            "seatNum":     "24",
+            "teacherName": "02810/金建国",
+        },
+        {
+            "campus":      "朝晖校区",
+            "className":   "大学英语-0117",
+            "credits":     "4.0",
+            "examPlace":   "存中楼一楼报告厅",
+            "examTime":    "2024-01-17(08:15-10:15)",
+            "id":          "G209031",
+            "lessonName":  "大学英语",
+            "lessonPlace": "教404;教404",
+            "seatNum":     "91",
+            "teacherName": "02985/张其亮",
+        },
+        {
+            "campus":      "朝晖校区",
+            "className":   "中国近现代史纲要-0006",
+            "credits":     "2.0",
+            "examPlace":   "东配楼415",
+            "examTime":    "2024-01-16(13:30-15:30)",
+            "id":          "G237002",
+            "lessonName":  "中国近现代史纲要",
+            "lessonPlace": "教401;教401",
+            "seatNum":     "48",
+            "teacherName": "04937/屈胜飞",
+        },
+        {
+            "campus":      "朝晖校区",
+            "className":   "高等数学Ⅰ-0012",
+            "credits":     "5.0",
+            "examPlace":   "教601",
+            "examTime":    "2024-01-15(09:00-11:00)",
+            "id":          "G210013",
+            "lessonName":  "高等数学Ⅰ",
+            "lessonPlace": "教202;子良A221;教201;教202",
+            "seatNum":     "23",
+            "teacherName": "06120/任博",
+        },
+        {
+            "campus":      "朝晖校区",
+            "className":   "心理健康与自我成长-0017",
+            "credits":     "1.0",
+            "examPlace":   "在线考试OnlineExam",
+            "examTime":    "2023-12-03(11:00-11:45)",
+            "id":          "G207007",
+            "lessonName":  "心理健康与自我成长",
+            "lessonPlace": "教802",
+            "seatNum":     "114",
+            "teacherName": "05576/张苗苗",
+        },
+        {
+            "campus":      "朝晖校区",
+            "className":   "国家安全教育-0014",
+            "credits":     "1.0",
+            "examPlace":   "在线考试",
+            "examTime":    "2023-11-25(18:00-20:00)",
+            "id":          "G227004",
+            "lessonName":  "国家安全教育",
+            "lessonPlace": "",
+            "seatNum":     "4808",
+            "teacherName": "00548/顾容;04076/蒋惠琴;06095/闫丹;05495/肖云泽;04708/梁美赟;00032/包士毅;04899/李芸;05614/吴杰;05754/朱添田;05488/刘杰;05231/王婷;03226/王绍让",
+        },
+        {
+            "campus":      "朝晖校区",
+            "className":   "程序设计基础C-0005（大类）",
+            "credits":     "4.0",
+            "examPlace":   "教304",
+            "examTime":    "2023-11-25(09:00-11:00)",
+            "id":          "G226002",
+            "lessonName":  "程序设计基础C",
+            "lessonPlace": "教901;教307;教903;教307",
+            "seatNum":     "21",
+            "teacherName": "01567/毛国红",
+        },
+        {
+            "campus":      "朝晖校区",
+            "className":   "高等数学Ⅰ-0012",
+            "credits":     "5.0",
+            "examPlace":   "教507",
+            "examTime":    "2023-11-19(08:00-09:30)",
+            "id":          "G210013",
+            "lessonName":  "高等数学Ⅰ",
+            "lessonPlace": "教202;子良A221;教201;教202",
+            "seatNum":     "17",
+            "teacherName": "06120/任博",
+        },
+    }
+
+    utils.JsonSuccessResponse(c, result)
+}
