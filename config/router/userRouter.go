@@ -17,6 +17,7 @@ func userRouterInit(r *gin.RouterGroup) {
 		bind := user.Group("/bind", midwares.CheckLogin)
 		{
 			bind.POST("/zf", userController.BindZFPassword)
+			bind.POST("/oauth", userController.BindOauthPassword)
 		}
 	}
 }
