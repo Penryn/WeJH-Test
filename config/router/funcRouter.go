@@ -13,6 +13,7 @@ func funcRouterInit(r *gin.RouterGroup) {
 		zf := fun.Group("/zf", midwares.CheckLogin)
 		{
 			zf.POST("/midtermscore", zfController.GetMidTermScore)
+			zf.POST("/classtable", zfController.GetClassTable)
 		}
 	}
 }
